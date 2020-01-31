@@ -17,3 +17,10 @@ gem 'sqlite3', '1.4.1'
 gem 'rake'
 
 gem 'bcrypt'
+
+# がそうファイルを管理する
+gem 'carrierwave'
+
+group :development, :test do
+  gem 'pry', '~> 0.10.4'
+end

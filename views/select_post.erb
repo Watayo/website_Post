@@ -1,0 +1,10 @@
+<h1>題名：<%= @select_post.title %></h1>
+  <div>
+    <h2>Image</h2>
+    <img src="<%= @select_post.content.url %>" />
+
+    <h2>Description</h2>
+    <p>
+      <%= CGI.escapeHTML(@select_post.description) %>
+    </p>
+  </div>

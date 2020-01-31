@@ -1,9 +1,20 @@
 
 <% unless session[:user] %>
-	<a href="/signin">ログイン</a>
+<%# ログイン前の画面 %>
+	<a href="/signin">ログイン</a>　
 	<a href="/signup">新規登録</a>
 	<h2>未ログイン</h2>
 <% else %>
+<%# ログインしたあと %>
 	<a href="/signout">ログアウト</a>
-	<h2><%= User.find(session[:user]).name %>としてログイン</h2>
+	<h2><%= current_user.name %>としてログイン</h2>
+	<%# 投稿フォームに飛ぶ %>
+	<a href="/posting">投稿</a>
+	<div> <%# 投稿したやつを一覧表示 %>
+		<% @posts.each do |post| %>
+			<tr>
+				<a href="/posts/<%= post.id %>"><%= post.title %></a>
+			</tr>
+		<% end %>
+	</div>
 <% end %>
