@@ -9,12 +9,12 @@
 	<a href="/signout">ログアウト</a>
 	<h2><%= current_user.name %>としてログイン</h2>
 	<%# 投稿フォームに飛ぶ %>
-	<a href="/posting">投稿</a>
-	<div> <%# 投稿したやつを一覧表示 %>
-		<% @posts.each do |post| %>
+	<a href="/itemupload">投稿</a>
+<% end %>
+<div> <%# 投稿したやつを一覧表示 %>
+		<% @items.each do |item| %>
 			<tr>
-				<a href="/posts/<%= post.id %>"><%= post.title %></a>
+				<a href="/items/<%= item.id %>"><%= item.title %></a>
 			</tr>
 		<% end %>
 	</div>
-<% end %>

@@ -28,9 +28,9 @@ end
 
 get '/' do
   if current_user.nil?
-    @posts = Post.none
+    @items = Item.none
   else
-    @posts = current_user.posts
+    @items = current_user.items
   end
   erb :index
 end
@@ -43,8 +43,8 @@ get '/signup' do
   erb :signup
 end
 
-get '/posting' do
-  erb :posting
+get '/itemupload' do
+  erb :itemupload
 end
 
 post '/signin' do
@@ -70,8 +70,8 @@ post '/signup' do
   redirect '/'
 end
 
-post '/posting' do
-  current_user.posts.create(
+post '/itemupload' do
+  current_user.items.create(
     title: params[:title],
     user_name: params[:name],
     content: params[:content],
@@ -80,8 +80,8 @@ post '/posting' do
   redirect '/'
 end
 
-get '/posts/:id' do
-  @select_post = Post.find(params[:id])
+get '/items/:id' do
+  @select_item = Item.find(params[:id])
   erb :select_post
 end
 
